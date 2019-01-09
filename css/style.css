@@ -1,0 +1,305 @@
+/*******tic-tac-toe******/
+#tic-tac-toe .disable {text-transform:uppercase; font-size:30px; font-family:Georgia, "Times New Roman", Times, serif}
+#tic-tac-toe #game li {float:left; padding:0; list-style:none; text-align:center; margin-bottom:20px; color:#fff; height:60px; line-height:60px; font-size:40px; color:#ccc}
+#tic-tac-toe #game li.disable{color:#fff}
+#tic-tac-toe #game {float:left; padding:0; clear:both}
+.new_span {width:226px}
+#tic-tac-toe #reset { padding:5px 10px; color:#fff; font-family:Arial, Helvetica, sans-serif; font-size:20px; clear:both; cursor:pointer; float:left; text-align:center; text-transform:uppercase; outline:none; width:204px}
+.input-prepend span.pre_text {width:55px}
+.input-prepend .span1{width:93px}
+.input-prepend {margin-bottom:10px}
+.clr {clear:both; height:0}
+/*#tic-tac-toe h1 {text-align:center; font-size:28px; color:#fff;}*/
+#tic-tac-toe li::-moz-selection {background:none;color:#000;}
+#tic-tac-toe li::-webkit-selection {background:none;color:#000;}
+#tic-tac-toe {width:220px; margin:0 auto}
+.input-append .win_times {background:#fff; margin: 20px auto 20px; line-height:50px; font-size:40px; height:50px; width:101px}
+.input-append .win_text {width:52px}
+/*******tic-tac-toe END******/
+body{
+	margin: 0;
+	padding: 0;
+	background: #000;
+	transition:0.5s;
+}
+body.night{
+	background: #000;
+}
+a{
+	position: absolute;
+	top: 65%;
+	left: 52%;
+	transform: translate(-50%, -50%);
+	width: 200px;
+	height: 60px;
+	text-align: center;
+	color: #fff;
+	line-height: 50px;
+	font-size: 24px;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-family: sans-serif;
+	box-sizing: border-box;
+	background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+	background-size: 400%;
+	border-radius: 30px;
+	z-index: 1;
+}
+a:hover{
+	animation: animate 8s linear infinite;
+}
+@keyframes animate{
+	0%{
+		background-position: 0%;
+	}
+	100%{
+		background-position: 400%;
+	}
+}
+a:before{
+	content: '';
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	right: -5px;
+	bottom: -5px;
+	z-index: -1;
+	background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+	background-size: 400%;
+	border-radius: 40px;
+	opacity: 0;
+	transition: 0.5%;
+}
+a:hover:before{
+	filter: blur(5px);
+	opacity: 1;
+	animation: animate 8s linear infinite;
+}
+.shadow{
+	position: absolute;
+	top: -9%;
+	left: 7%;
+	margin: 200px auto 0;
+	width: 400px;
+	height: 220px;
+	background: linear-gradient(0deg,#000,#262626);
+}
+.shadow:before,
+.shadow:after{
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	background: linear-gradient(45deg,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	background-size: 400%;
+	z-index: -1;
+	animation: animate 20s linear infinite;
+	transition: 0.5s;
+}
+.shadow:after,.shadow2:after{
+	filter: blur(20px);
+}
+@keyframes animate{
+	0%{
+		background-position: 0 0;
+	}
+	50%{
+		background-position: 300% 0;
+	}
+	100%{
+		background-position: 0 0;
+	}
+}
+.shadow1{
+	position: absolute;
+	top: -9%;
+	left: 66%;
+	margin: 200px auto 0;
+	width: 400px;
+	height: 220px;
+	background: linear-gradient(0deg,#000,#262626);
+}
+.shadow1:before,
+.shadow1:after{
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	background: linear-gradient(45deg,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	background-size: 50%;
+	z-index: -1;
+	animation: animate 10s linear infinite;
+	transition: 0.5s;
+}
+@keyframes animate{
+	0%{
+		background-position: 0 0;
+	}
+	50%{
+		background-position: 300% 0;
+	}
+	100%{
+		background-position: 0 0;
+	}
+}
+.shadow2{
+	position: absolute;
+	top: -118%;
+	left: 25%;
+	margin: 200px auto 0;
+	width: 200px;
+	height: 56px;
+	background: #000;
+	transition: 0.5s;
+}
+.shadow2:before,
+.shadow2:after{
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	background: linear-gradient(45deg,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	background-size: 400%;
+	z-index: -1;
+	animation: animate 20s linear infinite;
+	transition: 0.5s;
+}
+@keyframes animate{
+	0%{
+		background-position: 0 0;
+	}
+	50%{
+		background-position: 300% 0;
+	}
+	100%{
+		background-position: 0 0;
+	}
+}
+.shadow3{
+	position: absolute;
+	top: -118%;
+	left: 23%;
+	margin: 200px auto 0;
+	width: 200px;
+	height: 56px;
+	background: #000;
+	transition: 0.5s;
+}
+.shadow3:before,
+.shadow3:after{
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	background: #000;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	background-size: 50%;
+	z-index: -1;
+	animation: animate 10s linear infinite;
+	transition: 0.5s;
+}
+.content{
+	width: 1000px;
+}
+.content h1{
+	margin: 20px 0 20px;
+	padding: 0;
+	color: #fff;
+	transition: 0.5s;
+	font-size:32px;
+	text-align:center;
+}
+.content li{
+	margin: 0;
+	padding: 0;
+	color: #000;
+	transition: 0.5s;
+}
+.shadow h1{
+	margin: 0 0 0;
+	padding: 0;
+	color: #fff;
+	transition: 0.5s;
+	font-size:32px;
+	text-align:center;
+}
+.shadow1 h1{
+	margin: 0 0 0;
+	padding: 0;
+	color: #fff;
+	transition: 0.5s;
+	font-size:32px;
+	text-align:center;
+}
+.shadow2 h1{
+	margin: 7px -10px 0;
+	padding: 0;
+	color: #fff;
+	transition: 0.5s;
+	font-size:24px;
+	text-align:center;
+}
+.shadow3 h1{
+	margin: 7px -10px 0;
+	padding: 0;
+	color: #000;
+	transition: 0.5s;
+	font-size:24px;
+	text-align:center;
+}
+body.night .shadow2 h1
+{
+	color: #000;
+}
+body.night .shadow3 h1
+{
+	color: #fff;
+}
+body.night .shadow1 h1
+{
+	color: #fff;
+}
+body.night .shadow:after,body.night .shadow2:after
+{
+	filter: blur(0px);
+}
+body.night .shadow2:after
+{
+	background: #000;
+}
+body.night .shadow1:after,body.night .shadow3:after
+{
+	filter: blur(20px);
+}
+body.night .shadow3:after,.shadow3:before
+{
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	background: linear-gradient(45deg,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	background-size: 50%;
+	z-index: -1;
+	animation: animate 10s linear infinite;
+	transition: 0.5s;
+}
+@keyframes animate{
+	0%{
+		background-position: 0 0;
+	}
+	50%{
+		background-position: 300% 0;
+	}
+	100%{
+		background-position: 0 0;
+	}
+}
